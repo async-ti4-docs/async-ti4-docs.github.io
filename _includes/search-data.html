@@ -1,0 +1,14 @@
+<script>
+window.searchData = [
+    {% for doc in site.docs %}
+    {
+        title: {{ doc.title | jsonify }},
+        url: {{ doc.url | relative_url | jsonify }},
+        content: {{ doc.content | strip_html | strip_newlines | jsonify }},
+        description: {{ doc.description | default: doc.excerpt | jsonify }},
+        tags: {{ doc.tags | jsonify }},
+        category: {{ doc.parent | default: "Main" | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+];
+</script>

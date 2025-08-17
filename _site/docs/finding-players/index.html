@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Finding players - Async Twilight Imperium</title>
+    <meta name="description" content="Learn how to use Discord to find players.">
+    
+    <!-- SEO Tags -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Finding players | Async Twilight Imperium</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Finding players" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Learn how to use Discord to find players." />
+<meta property="og:description" content="Learn how to use Discord to find players." />
+<link rel="canonical" href="http://0.0.0.0:4010/docs/finding-players/" />
+<meta property="og:url" content="http://0.0.0.0:4010/docs/finding-players/" />
+<meta property="og:site_name" content="Async Twilight Imperium" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Finding players" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Learn how to use Discord to find players.","headline":"Finding players","url":"http://0.0.0.0:4010/docs/finding-players/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/syntax.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="theme-washed-neon">
+    <div class="site-wrapper">
+        <!-- Header -->
+        <header class="site-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="/" class="logo-link">
+                            <span class="logo-icon">📚</span>
+                            <span class="logo-text">Async TI Docs</span>
+                        </a>
+                    </div>
+                    
+                    <nav class="main-nav">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/docs/getting-started/" class="nav-link">Getting Started</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://images-cdn.fantasyflightgames.com/filer_public/da/df/dadf9f07-78f3-43ac-9cce-dd6b55b24ec2/ti4_living_rules_reference_v1_3_web.pdf" target="_blank" class="nav-link">Game Rules</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://asyncti4.com/" class="nav-link">asyncTI4 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://discord.gg/VSKaFjq2" target="_blank" rel="noopener" class="nav-link">Discord</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="site-main">
+            <div class="docs-layout">
+                <!-- Left Sidebar -->
+                <aside class="docs-sidebar">
+                    <div class="sidebar-section">
+                        <div class="search-container">
+                            <input type="text" id="search-input" class="search-input" placeholder="Search documentation...">
+                            <div id="search-results" class="search-results"></div>
+                        </div>
+                        
+                        <h3 class="sidebar-title">Documentation</h3>
+                        <nav class="docs-nav">
+                            <ul class="docs-nav-list">
+                                
+                                
+                                
+                                
+                                    
+                                        
+                                        <li>
+                                            <a href="/docs/welcome/" class="docs-nav-link ">
+                                                Welcome
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                        <li>
+                                            <a href="/docs/discord-bot/" class="docs-nav-link ">
+                                                Discord Bot
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            
+                                            
+                                            <li class="nav-group">
+                                                <div class="nav-group-header">
+                                                    <span class="nav-group-title">Getting started</span>
+                                                    <span class="nav-group-toggle">▼</span>
+                                                </div>
+                                                <ul class="nav-group-items">
+                                        
+                                        <li>
+                                            <a href="/docs/finding-players/" class="docs-nav-link docs-nav-sublink active">
+                                                Finding players
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                        <li>
+                                            <a href="/docs/how-to-channels-roles/" class="docs-nav-link docs-nav-sublink ">
+                                                Channels, roles, and how to use them
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                        <li>
+                                            <a href="/docs/game-setup/" class="docs-nav-link docs-nav-sublink ">
+                                                Game setup
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            
+                                                </ul></li>
+                                            
+                                            
+                                            <li class="nav-group">
+                                                <div class="nav-group-header">
+                                                    <span class="nav-group-title">Playing the game</span>
+                                                    <span class="nav-group-toggle">▼</span>
+                                                </div>
+                                                <ul class="nav-group-items">
+                                        
+                                        <li>
+                                            <a href="/docs/strategy-phase/" class="docs-nav-link docs-nav-sublink ">
+                                                Strategy phase
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                        <li>
+                                            <a href="/docs/action-phase/" class="docs-nav-link docs-nav-sublink ">
+                                                Action phase
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                        <li>
+                                            <a href="/docs/status-phase/" class="docs-nav-link docs-nav-sublink ">
+                                                Status phase
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                        <li>
+                                            <a href="/docs/agenda-phase/" class="docs-nav-link docs-nav-sublink ">
+                                                Agenda phase
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            
+                                                </ul></li>
+                                            
+                                            
+                                            <li class="nav-group">
+                                                <div class="nav-group-header">
+                                                    <span class="nav-group-title">The map</span>
+                                                    <span class="nav-group-toggle">▼</span>
+                                                </div>
+                                                <ul class="nav-group-items">
+                                        
+                                        <li>
+                                            <a href="/docs/reading-the-map/" class="docs-nav-link docs-nav-sublink ">
+                                                Reading the Map
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                        <li>
+                                            <a href="/docs/objectives/" class="docs-nav-link docs-nav-sublink ">
+                                                Reading the Objectives
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                        <li>
+                                            <a href="/docs/player-areas/" class="docs-nav-link docs-nav-sublink ">
+                                                Reading the Player Areas
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            
+                                                </ul></li>
+                                            
+                                            
+                                            <li class="nav-group">
+                                                <div class="nav-group-header">
+                                                    <span class="nav-group-title">Player changes, elimination and ending</span>
+                                                    <span class="nav-group-toggle">▼</span>
+                                                </div>
+                                                <ul class="nav-group-items">
+                                        
+                                        <li>
+                                            <a href="/docs/replacing-and-eliminating-players/" class="docs-nav-link docs-nav-sublink ">
+                                                Replacing and eliminating players
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                        <li>
+                                            <a href="/docs/ending-the-game/" class="docs-nav-link docs-nav-sublink ">
+                                                Ending the game
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            
+                                                </ul></li>
+                                            
+                                            
+                                            <li class="nav-group">
+                                                <div class="nav-group-header">
+                                                    <span class="nav-group-title">Help and support</span>
+                                                    <span class="nav-group-toggle">▼</span>
+                                                </div>
+                                                <ul class="nav-group-items">
+                                        
+                                        <li>
+                                            <a href="/docs/servers-channels-and-roles/" class="docs-nav-link docs-nav-sublink ">
+                                                Servers, channels, and roles
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            
+                                                </ul></li>
+                                            
+                                            
+                                            <li class="nav-group">
+                                                <div class="nav-group-header">
+                                                    <span class="nav-group-title">Commands</span>
+                                                    <span class="nav-group-toggle">▼</span>
+                                                </div>
+                                                <ul class="nav-group-items">
+                                        
+                                        <li>
+                                            <a href="/docs/commands/" class="docs-nav-link docs-nav-sublink ">
+                                                Commands
+                                            </a>
+                                        </li>
+                                    
+                                
+                                    
+                                        
+                                            
+                                                </ul></li>
+                                            
+                                            
+                                            <li class="nav-group">
+                                                <div class="nav-group-header">
+                                                    <span class="nav-group-title">Help and support</span>
+                                                    <span class="nav-group-toggle">▼</span>
+                                                </div>
+                                                <ul class="nav-group-items">
+                                        
+                                        <li>
+                                            <a href="/docs/glossary/" class="docs-nav-link docs-nav-sublink ">
+                                                Glossary
+                                            </a>
+                                        </li>
+                                    
+                                
+                                
+                                
+                                    </ul></li>
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Quick Links</h3>
+                        <nav class="docs-nav">
+                            <ul class="docs-nav-list">
+                                <li><a href="/docs/faq/" class="docs-nav-link">FAQ</a></li>
+                                <li><a href="/docs/troubleshooting/" class="docs-nav-link">Troubleshooting</a></li>
+                                <li><a href="/docs/contributing/" class="docs-nav-link">Contributing</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="docs-main">
+                    <article class="docs-article">
+                        <header class="article-header">
+                            <h1 class="article-title">Finding players</h1>
+                            
+                            <p class="article-description">Learn how to use Discord to find players.</p>
+                            
+                        </header>
+
+                        <div class="article-content">
+                            <h2 id="start-a-new-game">Start a new game</h2>
+
+<p>The first option is to start your own game. This is encouraged even for new async players, since the easiest way to learn about the bot is to play a game yourself and try it out.</p>
+
+<ol>
+  <li>Go to <a href="https://discord.com/channels/943410040369479690/1064017530391379998">#making-new-games <i class="fa-solid fa-arrow-up-right-from-square"></i></a> channel and create a post. 
+<img src="/assets/images/getting-started/1-start-new-game.png" alt="" /></li>
+  <li>Tag the post with your general expectation in the game, for example: 6 or 8 players,  10 or 14 VP, etc. The general idea of the tags are:
+    <ul>
+      <li><strong>Casual</strong> / <strong>Competitive</strong> – Self-explanatory. Competitive games often include the <strong>TIGL</strong> tag.</li>
+      <li><strong>6p</strong> / <strong>7p</strong> / <strong>8p</strong> – Supported player counts (3–8 work well). For <strong>2p</strong> or <strong>9p+</strong>, ask in <code class="language-plaintext highlighter-rouge">#bot-questions-and-feedback</code>.</li>
+      <li><strong>10vp</strong> / <strong>12vp</strong> / <strong>14vp</strong> – Victory Point totals (bot supports any VP).</li>
+      <li>Type of draft:
+        <ul>
+          <li><strong>Milty</strong> – Randomized set of slices and factions; players snake draft slice, faction, or speaker (see <a href="https://milty.shenanigans.be/">milty.shenanigans.be <i class="fa-solid fa-arrow-up-right-from-square"></i></a>).</li>
+          <li><strong>Bag Draft</strong> – Each player drafts from a bag of faction, tiles, and speaker position, passing until complete. Not automated; ask in <code class="language-plaintext highlighter-rouge">#bot-questions-and-feedback</code>.</li>
+        </ul>
+      </li>
+      <li><strong>Franken</strong> – Factions split into draftable components (abilities, techs, fleets, etc.); similar to bag draft. See <code class="language-plaintext highlighter-rouge">#franken</code>.</li>
+      <li>Game speeds:
+        <ul>
+          <li><strong>SuperFast</strong> – Moves at all waking hours.</li>
+          <li><strong>DecentlyFast</strong> – Multiple moves daily, frequent secondary passing.</li>
+          <li><strong>ChillPace</strong> – Roughly once daily.</li>
+          <li><strong>SlowBurn</strong> – Very casual pace.</li>
+        </ul>
+      </li>
+      <li><strong>Alliance</strong> – Variant from Codex II (<em>Affinity</em>). See <a href="https://twilight-imperium.fandom.com/wiki/Alliance_Game_Variant">wiki <i class="fa-solid fa-arrow-up-right-from-square"></i></a>.</li>
+      <li><strong>FogOfWar</strong> – Hidden-information variant. Ask for an invite in <a href="https://discord.com/channels/943410040369479690/1025083568839471165">#general-chat <i class="fa-solid fa-arrow-up-right-from-square"></i></a>.</li>
+      <li><strong>No Whispers</strong> – No private chats; all diplomacy in tabletalk channel.</li>
+      <li><strong>TIGL</strong> – <em>TI Global League</em>, competitive play. Run <code class="language-plaintext highlighter-rouge">/help what_is_tigl</code>.</li>
+      <li><strong>DS</strong> – <em>Discordant Stars</em>, expansion adding factions. See <a href="https://discord.com/channels/943410040369479690/1168522933283598437">#discordant-stars-talk <i class="fa-solid fa-arrow-up-right-from-square"></i></a>.</li>
+      <li><strong>Absol</strong> – Popular homebrew: new Agenda/Relic decks, tech and Mech rebalance. See <a href="https://discord.com/channels/943410040369479690/1370477581094224003">#generic-homebrew <i class="fa-solid fa-arrow-up-right-from-square"></i></a>.</li>
+    </ul>
+  </li>
+  <li>Include a brief description with other expectations that are not included in the tags, like you want people from a specific timezone, or you want this to be a learning-the-bot game. This post can be as complicated or as simple as you want.</li>
+  <li>Tag <code class="language-plaintext highlighter-rouge">@LFG</code> so that others looking for a game are notified of your game.
+When people start trickering in, update the initial post to let them know they are in.  This helps the following people know how many spots are left.</li>
+  <li>Finally, when you have all the players, use <code class="language-plaintext highlighter-rouge">/game create_game_button</code> command, filling in the player list and a fun game name. This will create a button with the necessary information, as well as provide the relevant server invite link right away (if any players are not in that server yet). The will create a Create Game button that you can press to launch the game. Check if all players are in the list, then press it and create the game.
+<img src="/assets/images/getting-started/2-start-new-game.png" alt="" /></li>
+</ol>
+
+<h2 id="join-a-newly-created-game">Join a newly created game</h2>
+
+<p>The second option is of course joining one of the newly created games looking for players. If you’re looking for a game, you can get the <code class="language-plaintext highlighter-rouge">@LFG</code> role by going to the <a href="https://discord.com/channels/943410040369479690/947312278246658108">#get-roles-like-lfg <i class="fa-solid fa-arrow-up-right-from-square"></i></a> channel (in “WELCOME! GET INTO A GAME!” section of the server) and click on the corresponding icon to get the LFG roles.  You’ll be pinged when there are new open games starting.</p>
+
+<h3 id="game-cap">Game cap</h3>
+
+<p>In an effort to prevent the number of abandoned games, there is a cap on how many games a player can be in at the same time. This cap is equal to the number of games that a player has completed, plus three.</p>
+
+<p><em>Example: A new player who hasn’t finished a game will have a cap of 3 games. A player who has completed 30 games, has a cap of 33 in progress games.</em></p>
+
+                        </div>
+
+                        <footer class="article-footer">
+                            <div class="article-meta">
+                                <span class="last-updated">Last updated: </span>
+                            </div>
+                            
+                            <nav class="article-navigation">
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                    
+                                    
+                                    
+                                
+                                    
+                                    
+                                    
+                                
+                                    
+                                    
+                                    
+                                
+                                    
+                                        
+                                        
+                                
+                                
+                                <a href="/docs/discord-bot/" class="nav-prev">
+                                    <span class="nav-arrow">←</span>
+                                    <div class="nav-content">
+                                        <span class="nav-label">Previous</span>
+                                        <span class="nav-title">Discord Bot</span>
+                                        
+                                    </div>
+                                </a>
+                                
+                                
+                                
+                                <a href="/docs/how-to-channels-roles/" class="nav-next">
+                                    <div class="nav-content">
+                                        <span class="nav-label">Next</span>
+                                        <span class="nav-title">Channels, roles, and how to use them</span>
+                                        
+                                        <span class="nav-parent">Getting started</span>
+                                        
+                                    </div>
+                                    <span class="nav-arrow">→</span>
+                                </a>
+                                
+                            </nav>
+                        </footer>
+                    </article>
+                </main>
+
+                <!-- Right Side Table of Contents -->
+                <aside class="docs-toc">
+                    
+
+<div class="toc-container">
+  <div class="toc-title">Table of Contents</div>
+  <ul class="toc-list" id="toc-list">
+    <!-- ToC will be generated by JavaScript -->
+  </ul>
+</div>
+
+<script>
+// Generate Table of Contents from page headings
+function generateTOC() {
+  const tocList = document.getElementById('toc-list');
+  const headings = document.querySelectorAll('.article-content h2, .article-content h3, .article-content h4, .article-content h5, .article-content h6');
+  
+  if (headings.length === 0) {
+    tocList.innerHTML = '<li><p style="color: var(--text-muted); font-style: italic;">No headings found on this page.</p></li>';
+    return;
+  }
+  
+  let tocHTML = '';
+  
+  headings.forEach((heading, index) => {
+    const level = parseInt(heading.tagName.charAt(1));
+    const text = heading.textContent.trim();
+    
+    // Generate ID if not present
+    if (!heading.id) {
+      heading.id = text.toLowerCase()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+    }
+    
+    const indentClass = `toc-h${level}`;
+    
+    tocHTML += `
+      <li class="${indentClass}">
+        <a href="#${heading.id}" onclick="scrollToHeading('${heading.id}')">${text}</a>
+      </li>
+    `;
+  });
+  
+  tocList.innerHTML = tocHTML;
+}
+
+function scrollToHeading(id) {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+}
+
+// Highlight current section based on scroll position
+function updateTocHighlight() {
+  const headings = document.querySelectorAll('.article-content h2, .article-content h3, .article-content h4, .article-content h5, .article-content h6');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  
+  if (headings.length === 0) return;
+  
+  let currentHeading = null;
+  
+  // Find the current heading based on scroll position
+  headings.forEach((heading) => {
+    const rect = heading.getBoundingClientRect();
+    if (rect.top <= 100) { // 100px offset for sticky header
+      currentHeading = heading;
+    }
+  });
+  
+  // Update ToC highlighting
+  tocLinks.forEach(link => {
+    link.classList.remove('active');
+    if (currentHeading && link.getAttribute('href') === '#' + currentHeading.id) {
+      link.classList.add('active');
+    }
+  });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  generateTOC();
+  window.addEventListener('scroll', updateTocHighlight);
+  updateTocHighlight(); // Initial call
+});
+</script>
+
+                </aside>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p> All rights for Twilight Imperium 4th Edition belong to Fantasy Flight Games. As fans of the game, who buy anything FFG produces that has to do with TI4, we're using their property in what we believe is fair use to play the game asynchronously, spread love for the game, and encourage people to buy the product. Docs site built with Jekyll.</p>
+                    <div class="footer-links">
+                        <a href="https://discord.gg/VSKaFjq2" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    
+    <script>
+window.searchData = [
+    
+    {
+        title: "Finding players",
+        url: "/docs/finding-players/",
+        content: "Start a new gameThe first option is to start your own game. This is encouraged even for new async players, since the easiest way to learn about the bot is to play a game yourself and try it out.  Go to #making-new-games  channel and create a post.   Tag the post with your general expectation in the game, for example: 6 or 8 players,  10 or 14 VP, etc. The general idea of the tags are:          Casual / Competitive – Self-explanatory. Competitive games often include the TIGL tag.      6p / 7p / 8p – Supported player counts (3–8 work well). For 2p or 9p+, ask in #bot-questions-and-feedback.      10vp / 12vp / 14vp – Victory Point totals (bot supports any VP).      Type of draft:                  Milty – Randomized set of slices and factions; players snake draft slice, faction, or speaker (see milty.shenanigans.be ).          Bag Draft – Each player drafts from a bag of faction, tiles, and speaker position, passing until complete. Not automated; ask in #bot-questions-and-feedback.                    Franken – Factions split into draftable components (abilities, techs, fleets, etc.); similar to bag draft. See #franken.      Game speeds:                  SuperFast – Moves at all waking hours.          DecentlyFast – Multiple moves daily, frequent secondary passing.          ChillPace – Roughly once daily.          SlowBurn – Very casual pace.                    Alliance – Variant from Codex II (Affinity). See wiki .      FogOfWar – Hidden-information variant. Ask for an invite in #general-chat .      No Whispers – No private chats; all diplomacy in tabletalk channel.      TIGL – TI Global League, competitive play. Run /help what_is_tigl.      DS – Discordant Stars, expansion adding factions. See #discordant-stars-talk .      Absol – Popular homebrew: new Agenda/Relic decks, tech and Mech rebalance. See #generic-homebrew .        Include a brief description with other expectations that are not included in the tags, like you want people from a specific timezone, or you want this to be a learning-the-bot game. This post can be as complicated or as simple as you want.  Tag @LFG so that others looking for a game are notified of your game.When people start trickering in, update the initial post to let them know they are in.  This helps the following people know how many spots are left.  Finally, when you have all the players, use /game create_game_button command, filling in the player list and a fun game name. This will create a button with the necessary information, as well as provide the relevant server invite link right away (if any players are not in that server yet). The will create a Create Game button that you can press to launch the game. Check if all players are in the list, then press it and create the game.Join a newly created gameThe second option is of course joining one of the newly created games looking for players. If you’re looking for a game, you can get the @LFG role by going to the #get-roles-like-lfg  channel (in “WELCOME! GET INTO A GAME!” section of the server) and click on the corresponding icon to get the LFG roles.  You’ll be pinged when there are new open games starting.Game capIn an effort to prevent the number of abandoned games, there is a cap on how many games a player can be in at the same time. This cap is equal to the number of games that a player has completed, plus three.Example: A new player who hasn’t finished a game will have a cap of 3 games. A player who has completed 30 games, has a cap of 33 in progress games.",
+        description: "Learn how to use Discord to find players.",
+        tags: [],
+        category: "Getting started"
+    },
+    
+    {
+        title: "Game setup",
+        url: "/docs/game-setup/",
+        content: "Originally, this step was done with commands, but thanks to the tireless work of our developers, it can now be mostly done with buttons (at least for standard games).## Milty draftIf you are someone who enjoys Milty draft, you only need to run the command `/milty` setup, and the bot will present you with a nice in-house draft that you can utilize to conduct your draft.![](/assets/images/getting-started/1-game-setup.png)![](/assets/images/getting-started/2-game-setup.png)When you have set up the draft parameters to your liking, you can start the draft by pressing Start Milty Draft. Below is how the draft setup usually looks like.![](/assets/images/getting-started/3-game-setup.png)## Standard game commandsIf you are looking for something more out of the box, the below commands should help you get there. These should be run in the `pbdX-bot-map-updates` thread and are explained here:* `/game setup`: used to set up the game, with options explained below (not all need to be set):    * `player_count_for_map` defines the size of the map for the bot (between 2 and 30), default 6.    * `vp_count` sets the victory track to the desired target of victory points (typically 10, 12, or 14).     * `sc_count_for_map` sets the amount of Strategy Card each player will pick in the Strategy Phase, default 1.    * `max_so_count` is the maximum number of Secret Objectives the player can hold (this number will be dynamically changed in-game if relevant abilities increase it, like The Obsidian relic). Default 3.    * `game_custom_name` is the silly name you gave your game that will appear above the score track on the map (can be the same as the name on pbdX-name-of-the-game channel). This is where you should also note any special variants (such as 4-4-4) you’re playing with to remind players and spectators.     * `is_tigl_game` is to mark the game as TIGL. _Default False_.    * `auto_ping` sets a timer to ping the active player if it is still their turn after x hours. Input the number of hours between each ping. 0 means it’s off. Minimum 1. Default 36.    ![](/assets/images/getting-started/4-game-setup.png)* `/game weird_game_setup` This is the one stop shop for all of you homebrew enthusiasts here. Just run it and choose the ideal mode for your game. Now with Age of Exploration and Minor Factions!    * `community_mode` allows anyone, including players not added to the game, to make changes to the game. This is not recommended as a general use and was created to support the community game where dozens of people control the same faction together. _Default False_.    * `fow_mode` is used for the Fog of War variant. _Default False_.    * `base_game_mode` is used when you want to play without the Prophecy of Kings expansions or the Codices. _Default False_.    * `miltymod_mode` is a homebrew made by Milty, only compatible with Base Game. And not to be confused with Milty Draft. _Default False_.    * `absol_mode` is used to replace the relic and agenda decks with the Absol version. _Default False_.    * `discordant_stars_mode` is used to include the factions from the Discordant Star fan expansion in the game. _Default False_.    * `age_of_exploration_mode` enables the Age of Exploration scenario revealed by Dane. _Default False_.    * `minor_factions_mode` enables the Minor Factions scenario revealed by Dane. _Default False_.    * `beta_test_mode` is for the devs to test new features. Advisable to keep default. _Default False_.     * `extra_secret_mode` will allow each player to start with 2 Secret Objectives. _Default False_.* `/map add_tile_list {mapString}`: {mapString} is the numerical TTS / TTPG map string. The bot will draw the map, add the frontier tokens, the Custodian token, and the Wormhole nexus (in the locked status).>Tips: If you used the wrong strings and the map came out not like you wanted, you can just run the command again to reset the map. It will erase the old map like it was never there.* `/game set_order`: Set the speaker order of the game. The first player listed should be the R1 Speaker and will occupy the 12:00 (uppermost) position on the map.(This can be done by clicking the button shown in the channel at the noted time, but it’s still useful to know the command behind it).* `/player setup`: used to set up a faction, color, and Home System position to a player. Options below:    * `faction` should be self-explanatory.    * `color` can be chosen from the table below. Please take note of color clashing and visibility when choosing colors. A few are missing, and the developers are working on a color-blind mode.    * `hs_tile_position` is used to specify where the player’s HS tile goes. Standard starting positions  for a 6-player game are 301, 304, 307, 310, 313, and 316, corresponding to the players’ position in the Speaker order.     * `player` is used when you are setting up for another player. If this is not chosen, the set up will be done for yourself.    * `speaker` set to _True_ to identify the player as the first Speaker. Usually set for the player in the 301 position.    (This can be done by clicking the button shown in the channel at the noted time, but it’s still useful to know the command behind it).* `/player change_color color`: If after setup, you don’t like your color (maybe because someone set it up for you), you can use this command to easily change it. Below are the available colors:![](/assets/images/getting-started/5-game-setup.png)* `/game set_deck`: If you are using a normal Base game + PoK, this command will not be necessary. It should only be used in case you are using a homebrew that includes changes in one or more of these decks:     * `ac_deck` (Action Cards)    * `relic_deck`    * `exploration_decks`    * `technology_deck`    * `so_deck` (Secret Objectives)    * `s1_public_deck` (Stage 1 Public Objectives)    * `s2_public_deck`    * `agenda_deck`    * `strategy_card_set`Choosing starting technologies: There will be a button for players that needs to choose their starting Technologies in the Actions channel:![](/assets/images/getting-started/6-game-setup.png)>Tip: If button doesn’t appear, `/tech tech_add` can be used instead. Remember to set the Technology deck in case you are using a non-standard Technology deck before adding tech.* `/player add_alliance_member faction_or_color`: Specific for Alliance variant. Used to identify your alliance partner, and has various effects on the game, like unlocking both of your Commander and adding their Commander to your player area, etc.After the map is created with /add_tile_list, the bot will prompt to deal out 2 Secret Objectives to all players with a button. Remember to only press it after all players have been set up and chose their starting Technologies (if applicable). After all players have discarded one SO, the bot will prompt again to reveal 2 Public Objectives and ping the Speaker to choose Strategy Card. That is when the game officially begins!![](/assets/images/getting-started/7-game-setup.png)",
+        description: "After the channels and roles are created, the next step is to set up the game.",
+        tags: [],
+        category: "Getting started"
+    },
+    
+    {
+        title: "Channels, roles, and how to use them",
+        url: "/docs/how-to-channels-roles/",
+        content: "## Channels of a new gameAfter you (or someone else) clicked the button to create the game, 2 things will happen:* A new role is created: It’s named pbdX (where X is the number of the game) and the bot will give everyone in the game this role. You can ping this role @pbd### to notify the players in your game of something.* 2 channels will be created in the Discord server: `pbdX-name-of-the-game` and `pbdX-actions` (with the threads `pbdX-bot-map-updates` and `Cards-Info-pbdX-player`). ![](/assets/images/getting-started/1-channel-roles.png)## pbdX-name-of-the-game The first channel is the tabletalk channel. This channel is open for conversation of any type, as you would over the table while playing the game. For most games, this is where deal making and negotiation happens, alongside jokes, small talk, memes, and bad jokes. Some groups/players like to start threads for particular conversations (such as a trade card activation or specific bi-lateral discussions) because often there are several conversations happening at the same time, and though they’re all public, not everyone is necessarily involved in all conversations. This is particularly relevant for games where no secret conversations are allowed, which is common in asynchronous play. There can be lots of public negotiations happening between players that don’t involve everyone. ![](/assets/images/getting-started/2-channel-roles.png)Posts in the tabletalk channel are **_not_** actions in the game - this channel is where you can discuss your intended actions or engage in potential negotiations without cluttering the actions channel.## pbdX-actions This channel is used to play the game. What this means is that this is the interface where you interact with the components of the bot (the buttons), and should be kept clear of chatters and map generation. Despite the sophistication of the buttons, mistakes are frequent. Depending on the game and groups, certain take backs may or may not be allowed. When mistakes happen, the player is encouraged to explain the mistake and the fix in actions, and conduct the actual fix commands in the pbdX-bot-map-updates thread.This brings us to the various threads related to the game in the pbdX-actions channel:![](/assets/images/getting-started/3-channel-roles.png)### pbdX-bot-map-updatesWhere the map of the game is generated. If you must do a command that is not included in the original buttons, or to fix a mistake, you should do it here, and include a description of your fix in the main Action channel. Many manual commands generate a map.  Keeping these commands in bot-map-updates prevents clutter in the main actions channel.![](/assets/images/getting-started/4-channel-roles.png)>Tip: If you cannot see the map clearly when you open it, you can click on it, and in a corner, you can find an option to “Open in Browser” to open it in your browser for a higher quality image. You can also use the Website View button to go to the website holding the map.### Cards-Info-pbdX-playerAt the start of the game, the Cards-Info-pbdX-player thread will be created with a button for you to set you or someone else as one of the factions in the game. Later, when you are set up, it will be populated with all the relevant information related to your faction (abilities, leaders, units, etc.). This thread also contains your faction’s secret information, i.e., Promissory Notes, Secret Objectives, and Action Cards. You can also do tasks related to those cards from here, like playing or discarding AC and SO, and also modifying your units and transactions. The result of those actions will be posted to the main Action channel. >Tip: The bot uses a system of random numbering to identify your cards. Everytime you show any of your cards to another player, that card’s ID number is shuffled. These ID numbers are useful when you need to perform some fixes that require commands.Also, thanks to improvements, you can now adjust various settings in your Cards Info thread, as you can see below:![](/assets/images/getting-started/5-channel-roles.png)![](/assets/images/getting-started/6-channel-roles.png)When clicking on “Change Player Settings”:    ![](/assets/images/getting-started/7-channel-roles.png)## pbdX-round-Y-strategycardDue to the nature of async, players may not be able to follow the secondary of Strategy Cards in real time. It’s standard for the active player to end turn before everyone has reacted to an SC, although there are certainly exceptions. When an SC is played, a separate thread is automatically created. This allows players to follow whenever they are online, and it keeps the relevant info in a central location. Of course, if any of the players want the secondary to be done in sequence, they can ping the whole group to make their desire known. >Please note that the order these threads are created are not reflected in how they appear in your thread list, and you need to follow them according to the order the SC are played.![](/assets/images/getting-started/8-channel-roles.png)",
+        description: "Learn how to use the various channels and roles in Discord.",
+        tags: [],
+        category: "Getting started"
+    },
+    
+    {
+        title: "Action phase",
+        url: "/docs/action-phase/",
+        content: "Like a normal TI game, there are 3 types of actions: Tactical, Strategic, and Component. The option to pass won’t present itself until you have played your Strategy Card (SC). >Note: After you perform an action, the bot will always present you with an option to perform another action, even if you are incapable of doing so (i.e., you do not have the 'Fleet Logistics' Technology). ![](/assets/images/playing-the-game/1-action-phase.png)![](/assets/images/playing-the-game/2-action-phase.png)## Tactical actionAll steps of a Tactical Action are followed and are almost fully automated by the buttons: 1. Activating the system 2. Moving units3. Combat4. Landing/invasion5. Exploration6. Production![](/assets/images/playing-the-game/3-action-phase.png)### Combat If there is combat, the bot will create a dedicated combat thread where the 2 players can roll using the buttons. * 'Anti-Fighter Barrage' is managed inside the thread. * 'Bombardment' is managed outside the thread (because Bombardment can be done without combat). * 'Space Cannon Offense' and 'Defense' are managed both inside and outside, depending on the situation (due to PDS II).Still, a lot of the combat abilities have not been automated yet, so you will need to keep vigilance to do things manually with commands when necessary.After rolling, the bot offers options to assign hits, use special abilities (i.e. Technology Singularity, Edict, etc.), and retreat (but it cannot recognize eligible systems to retreat to yet).>Tip: Simple way to use the `/roll` command: `/roll roll_command:Xd10hvY + Ad10hvB` (Where `X` and `A` are the number of ships of their respective types, and `Y` and `B` are their combat values. This means X d10 (10 sided die) hits versus Y.). >Example:>`roll roll_command: 2d10hv5` = 2 d10 (10 sided die) hits versus 5. Meaning \"Roll 2 10 sided dice, hitting on 5s.\"![](/assets/images/playing-the-game/4-action-phase.png)## Strategic actionThe bot will create a thread where the players can choose to follow or not by using the buttons. The standard procedure is that if you are done with your Primary, you should end turn, and let the others follow the secondary in their own time. Players that responded (either follow or not) will have their faction symbol displayed outside the thread. When it’s the other players’ turn, they are pinged to respond to those SC that they missed in their down time. They must respond to the SC by the order they are resolved, and before they actually take their turn.>Tip: Sometimes it’s appropriate to wait for everyone to follow; if you play Warfare and then Fleet Logistics into a home system, obviously that player has the opportunity to follow Warfare first.  Sometimes you may add a window for Coup - during a late game Imperial play against a Yssaril who Mageoned Coup from you earlier in the game, you can add your own reaction window.  Use your best judgment!  ![](/assets/images/playing-the-game/5-action-phase.png)![](/assets/images/playing-the-game/6-action-phase.png)## Component actionAll of the POK and Codices Component Actions have been coded into the bot. Most won’t be automatic, but you can almost always resolve it by using the existing tools in the Troubleshooting section. Please also note that your Component actions from your AC are not counted in the number on the button to avoid revealing hidden info, so you will have to keep those in mind.",
+        description: "How to play the Action phase.",
+        tags: [],
+        category: "Playing the game"
+    },
+    
+    {
+        title: "Agenda phase",
+        url: "/docs/agenda-phase/",
+        content: "The process is similar to a normal game. When a player has taken the Custodians, the Agenda phase will be automatically unlocked after the Status Phase.1. The process starts with the players revealing an Agenda through the bot, then each player will be privately asked in their cards info to decide on Whens and then Afters, and all Afters will be queued to play after everyone has passed on Whens, and all Whens/Afters will be queued in Speaker order. >Note: By default, if you queue an After and someone before you in speaker order also queued an After, your queued After will be cancelled. There is a button when queueing to override this default.     * By default, if you pass on Whens/Afters you will not be re-asked to pass later if someone else plays a When/After. There is a button after passing on Whens/Afters to override this default.     * If someone plays your Political Secret PN, all of your queued Whens/Afters will be cancelled and you will be automatically passed on them (though you can still use Keleres rider).     * If someone Quashes or Vetoes the agenda, all of your queued Whens/Afters will be cancelled.    * If at any point you are impatient with this process, or the new process bugs out, there remain a few options:        * Firstly, you can always play ACs/PNs normally, they are only queued if you play them via the queue process.         * Second, there remains the button in the public actions channel to \"Skip waiting and start the voting\" that can be used if things go wrong. 2. When you decide on Whens/Afters, either to queue or to pass on them, the bot will state in the public channel how many players it is still waiting on. 3. After all the players have played their When/Afters and/or responded no more When/Afters, the bot will ping the player to the left of Speaker (or the Argent Flight player with Zeal ability) to start the votes. The player will choose how many votes they want to spend for that Agenda and on which result, then choose the planets to exhaust. If the player has played a Rider card, or they have spent all their votes (none of their planets are readied), they are automatically skipped.>Tip: The vote numbers are actually separated from planet influence values in the bot. First choose the number of votes you want to spend, including any from abilities (Xxcha commander, Hacan commander) and techs (Predictive Intelligence), and then choose the planets you want to exhaust. If you make a mistake, you can use the buttons to remove your vote and vote again (remember to ready your planets first).4. After all players have voted, if there is a tie, the Speaker will be prompted to choose the result. If there were dissenting votes (or if it was an Elect Player agenda), the bot will prompt the players to play Bribery, Deadly Plot, and/or Confounding/Confusing Legal Texts. The bot will also give you the choice to resolve the Agenda according to the voted result (including adding the Agenda to the map if a law passed, with the elected result), or manually (choosing a different result due to the above cards). >Note: Some Agenda results are not automated. In those cases, you can ask in `#bot-questions-and-feedback` channel or use the commands noted in the Troubleshooting section to update the map accordingly.5. Finally, the bot will prompt you to flip the next Agenda or move on to Strategy Phase. As it cannot track how many Agenda has been revealed (and some effects muddle this, like the Veto AC and Quash), you must keep track of how many agendas have been voted on in order to know which button to select.",
+        description: "How to play the Agenda phase.",
+        tags: [],
+        category: "Playing the game"
+    },
+    
+    {
+        title: "Status phase",
+        url: "/docs/status-phase/",
+        content: "There are 2 steps: Scoring and Cleaning up.## ScoringYou can push the button with the Public Objective (PO) you want to score. You can score your Secret Objective(SO) by using the buttons in your Cards Info thread. Otherwise, please press “No PO Scored”/”No SO Scored” so that the phase can proceed. Players that responded will have their faction symbol displayed under the buttons.![](/assets/images/playing-the-game/1-status-phase.png)## Cleaning up1. The bot will prompt the reveal of new PO and automatically clean up. 2. Players draw Action Cards (ACs) (the bot will take into account Neural Motivator, Scheming, and Crafty for draw and discards) 3. Take new Command Counters (CC) (the bot will not interfere in this but it will remind players about Versatile, Hyper Metabolism, and Cybernetics Enhancement Omega). 4. The final step is to indicate “Ready for Strategy/Agenda Phase”, which will trigger one of the 2 phases when all players have responded. Players that responded will have their faction symbol displayed under the buttons.![](/assets/images/playing-the-game/2-status-phase.png)",
+        description: "How to play the Status phase.",
+        tags: [],
+        category: "Playing the game"
+    },
+    
+    {
+        title: "Strategy phase",
+        url: "/docs/strategy-phase/",
+        content: "Select the button to choose a Strategy Card (SC). If there are Trade Goods (TG) on the SC, they will be automatically added to your TG tally. ![](/assets/images/playing-the-game/1-strategy-phase.png)",
+        description: "How to play the Strategy phase.",
+        tags: [],
+        category: "Playing the game"
+    },
+    
+    {
+        title: "Reading the Objectives",
+        url: "/docs/objectives/",
+        content: "![](/assets/images/the-map/1a-reading-the-objectives.png)![](/assets/images/the-map/1b-reading-the-objectives.png)1. **Factions in game**: Lists factions in the current/completed game, the current active player and the player next in initative order.2. **Card pool**:     * Shows how many cards are left of each type.     * When numbered deck of cards is selected, shows the name and number of type of card left in the deck along with the percentage chance of obtaining them on draw:    ![](/assets/images/the-map/2-reading-the-objectives.png)3. **Unpicked Strategy Cards**: Strategy Cards not in play and the Trade Good tokens on them for chosing next turn.4. **Laws in Play**: The current active effects as a result of agendas.5. **Public Objectives**: The Stage One and Stage Two objectives in play. Shows the players that have achieved the objective. For players that have not acheived, shows their current progress. Unrevealed objectives are 'UNREVEALED'.6. **Other**: Shows scored points from other sources. For example, Custodian/Imperial scoring. Shows the score chart for the total number of points in the game.",
+        description: "How to read the Objectives overview page.",
+        tags: [],
+        category: "The map"
+    },
+    
+    {
+        title: "Reading the Player Areas",
+        url: "/docs/player-areas/",
+        content: "## Player areas overviewThe overview page shows all the player areas for players in the game. ![](/assets/images/the-map/1-reading-the-player-areas.png)### Player area explanation![](/assets/images/the-map/2-reading-the-player-areas.png)1. **Discord name/Time zone/Faction/Color**: Player's Discord name, time zone in UTC, their faction, and their color.2. **Neighboring factions**: Shows factions the viewed player is currently neighboring.3. **Speaker token (if speaker) and chosen Strategy card**: Shows 'SPEAKER' if player is speaker, and the Strategy Card chosen.4. **Player cards, trade goods and commodities**: Shows number of player cards held, number of ctrade goods and commodities.5. **Researched technology**: Current research held by player.6. **Player structures and units on the board**: Current and total number of structures and units on the board.7. **Unlocked/locked faction leaders**: Shows leader pool, locked leaders are grayed out.8. **Command counter distribution**: T = Tactic, F = Fleet, S = Strategy.9. **Available resources/influence from planets**: Shows available resources and influence from planets. Also shows the available resource/influence from planet attachments.10. **Planets**: Planets currently held by the player.11. **Values of on board units**:    * Resource value of what you have on the board     * HP of what you have on the board     * Expected hits if all your units on board rolled 1 round of combat12. **Cards played face up on the board**: Includes cards such as scored secret objectives, relics, promissary notes.",
+        description: "How to read the Player Areas overview page.",
+        tags: [],
+        category: "The map"
+    },
+    
+    {
+        title: "Reading the Map",
+        url: "/docs/reading-the-map/",
+        content: "A lot of information is crammed into the map, and learning how various info is displayed will help you quickly grasp the current status of the board and make decisions easier. You can find the base website for the map UI on [https://asyncti4.com/ ](https://asyncti4.com/)In the `pbdX-bot-map-updates` thread, you can press the “Show game” button or type in the command `/show_game` to show the most current map (as some commands and updates will not generate a map on their own, even though the data has been updated).Or you can click on the Website View button to go to the website https://ti4.westaddisonheavyindustries.com/game/pbdX (replacing X with the game number). This website will usually only update when a new map is drawn, so it’s still better to click “Show game” first. The result will be something like below:>Tip: If you cannot see the map clearly when you open it, you can click on it, and in a corner, you can find an option to “Open in Browser” to open it in your browser for a higher quality image (which corner may differ from device to device). Or you can use the Website View button to go to the website holding the map.## UI overview![](/assets/images/the-map/1.reading-the-map.png)1. Tab navigation:    * **Map**: The overview of in-progress or completed map.    * **Objectives**: Overview for in play objectives, cards, agendas, strategy cards and scoring.    * **Player Areas**: Overview of all the different player areas with details on their units, technologies, planets, and more.    * **Technology speciality planets**: Click to highlight planets with Technology specialities.    * **Ruler**: Shows number of movement needed to move between tiles.    * **PDS**: Shows planets with PDS structures on them.    * **Keyboard shortcuts**: Shows overview of available keyboard shortcuts.2. Quick-glance scoring and effects: Displays overview information for quick-glance on current effects (such as laws), current scored points and current round.3. Unit overview: Overview for unit that is currently selected/hovered over.4. Quick-glance player area: Displays overview information for a selected player.### Map player area![](/assets/images/the-map/2.reading-the-map.png)Here at the player area near their Home System, you can quickly see in the 3 dashed areas:1.     * Whether they are the active player (active player will have have a green 'Active' word) or not (nothing). It will also show 'Passed' in red if the player has passed.    * The number of Trade Goods (TG) and Commodities.    * Whether they are the Speaker or not (They will have the Speaker token in this area).2.     * Faction     * Discord name    * The SC they are holding and whether it has been played or not (grey = Played, color = Active) on top of faction symbol    * The number of SOs they have and how many have been scored (grey = Unscored, red = Scored), Victory Point (VP) count.3. * The Command token counts for Tactics, Fleet, and Strategy.### Ruler![](/assets/images/the-map/5-reading-the-map.png)1. Click ruler2. Click system tile 13. Click system tile 24. Overlay shows the number of movement needed between system tiles![](/assets/images/the-map/6-reading-the-map.png)",
+        description: "How to read the Map overview page.",
+        tags: [],
+        category: "The map"
+    },
+    
+    {
+        title: "Ending the game",
+        url: "/docs/ending-the-game/",
+        content: "All good times must come to an end, and when a player has achieved supremacy over their defeated opponents, it’s time to end the game and close the channels.When a player has reached the VP limit set at the beginning of the game, the game will prompt you to end the game with a button, which will do all the hard work for you, including closing the game in the bot, archiving the channels, and creating a post where you can give a summary of your victory. Though if everyone has not scored for their final point total (like if you only win in the Status Phase with Imperial), you should wait for them to complete before pressing the button.Alternatively, you can also use `/game end confirm:YES` to end the game. It functions the same as the button.Sometimes, people would like to continue using those channels (for some Campaign games, or a rematch). In those cases, please don’t use the button or the /game end command (as it would close the channels), but please use the command `/special rematch`.",
+        description: "How to end the game.",
+        tags: [],
+        category: "Player changes, elimination and ending"
+    },
+    
+    {
+        title: "Replacing and eliminating players",
+        url: "/docs/replacing-and-eliminating-players/",
+        content: "## Replacing players Sometimes, a player just did not vibe with the ASync format enough, or life just happened, and they could not, or would not continue the game. We all understand that, and wish the player leaving all the best. But that leaves the players still left looking for a new player to fill in that gap. These commands will help you to conduct the replacement quickly and effectively.The first step is actually not related to the bot. You need to find the replacement player. Go to `#finding-replacements` channel and create a post looking for a replacement. The post name should have the game name, the faction being replaced, a general idea of the format being played (TIGL, Absol, Discordant Stars, etc.). The post itself should go into details of any particularity of the game (like special rules or maps), and the situation the replacement player will find themselves in. It’s best to add the map of the game to the post as well (can be done through /show_game game_name:).After you have found the replacement player, use this command:`/game replace player: player2` Replace player with player2 in the game. Should be run in the game channel itself. ## Eliminating playersTwilight Imperium is a cutthroat game at the worst of times. That includes elimination, something that has been baked into the rulebook. So across our 2000s games, there tends to be a few eliminations. When that happens, use this:* `/game eliminate player1`: the command should get you most of the way, including the player from the bot and remove their components from the boards and players’ hands.* `/role remove user`: role: to remove the game role from the eliminated players. The role is pbdX, with X being the game number.",
+        description: "How to replace players mid-game and what to do when eliminating one.",
+        tags: [],
+        category: "Player changes, elimination and ending"
+    },
+    
+    {
+        title: "Commands",
+        url: "/docs/commands/",
+        content: "## Common commands* `/milty:`  Setup Set up a Milty draft* `/game undo undo_to_before_command: confirm:`  A powerful command, used to undo back to one of the last 10 button presses or commands. Should always be used in the pbdX-bot-map-updates thread. For commands that are too far late, it is better just to change the board state to how it should be, and not roll back a specific action.* `/show_game`  Draw the map according to the latest information. Now replaced by the Show map button, but still useful for its options:    * game_name: Draw the map of the specified game (pbdX). Default to the game that is run in the channel  this command is typed in.    * display_type: Various options for displaying the map (full map and player areas, map only, player area only). We encourage you to try it out to see what fits best for your situation.* `/cards_info`  Resend all info on your Action Cards, Secret Objectives, and Promissory Notes to your Cards Info thread. Now replaced by the Cards Info Button, but still useful for its options.    * long_pn_display: longer display for PN    * dm_card_info: send as DM* `/search:`  Various commands that can provide useful information (Description of Technologies, Action Cards, Objectives, etc.). You can just type `/search` in #bot-spam-zone channel to test it out.## Add and remove commandsCommands that add and remove components from the board.* `/move_units tile_name: unit_names: tile_name_to: unit_names_to:`   One of the most used commands in the game before the implementation of the buttons. Like what it says on the tins, it’s used to move units. Details on how to use it can be pulled by using the /help how_to_move_units command.    * faction_or_color: used to move units of other players, if not added, default to the player that use the command    * cc_use: decide if the bot will place a CC on that tile or not, and if yes, from where, default to CC from Tactics    * priority_no_damage: decide if the movement should prioritize undamaged units to move, default to True    * no_mapgen: decide if the bot will generate a map for this command, default to generating the map* `/add_units tile_name: unit_names:`  Add units to a tile. Some of the options are different from /move_units:    * cc_use: decide if the bot will place a CC on that tile or not, and if yes, from where, default to No CC use.    * sling_relay: also exhaust the Sling Relay tech or not. Default to no.* `/remove_units tile_name: unit_names:`  Remove units from a tile. Options also similar to /add_units (except the Sling Relay option).>Tip: The `/move_units` command is actually just a combination of `/add_units` and `/remove_units`, the units are not actually moved. So you can use this to put more or less units in the destination than what was moved, or to “replace” a unit (remember to set cc_use to No). This also means that if there is an error in one part of the command, it still tries to fulfill as much as possible, i.e. add units at the destination but does not remove units from the beginning.* `/add_sustain_damage tile_name: unit_names:`  Add ‘damaged’ status to units on the map. The tile_name and unit_names are used similar to `/add_units` or `/remove_units`. Please note that if there is an error in the command, and the bot cannot find the stated units, no ‘damage’ symbol will be added.    * faction_or_color: used to update for other players    * no_mapgen: decide if the bot will generate a map for this command, default to generating the map* `/remove_sustain_damage tile_name: unit_names:`  Remove the ‘damaged’ status from units on the map. The tile_name and unit_names are used similar to `/add_units` or `/remove_units`. Please note that if there is an error in the command, and the bot cannot find the stated units, no ‘damage’ symbol will be added.    * faction_or_color: used to update for other players    * no_mapgen: decide if the bot will generate a map for this command, default to generating the map* `/add_token token: tile_name:`  Add a token (Sleeper token, Gamma wormhole token, etc.) to a tile    * planet: Attach to a specific planet in that tile* `/remove_token token: tile_name:`  Remove an existing token on a tile.    * planet: Remove from a specific planet in that tile* `/add_frontier_tokens confirm:`  Add frontier tokens to all available spaces on the map. Usually used for Empyrean Hero or map set up. To add for a specific tile, use `/add_token`.* `/add_cc tile_name:`   Similar to `/add_token`, adds CC to tiles     * cc_use: Choose where to take the CC (Tactics or Reinforcements). If not added, default to reinforcements.    * faction_or_color: used to add CC of other players, if not added, default to the player that uses the command.* `/remove_cc tile_name:`  Similar to `/remove_token`, removes CC from tiles     * faction_or_color: used to add/remove CC of other players, if not added, default to the player that uses the command.## Player interaction commandsCommands that interact with the players status and stats.* `/player stats:`  Is used to update various stats that the player has.    * cc: Update number of CC. Format X/Y/Z (set the CC numbers of Tactics to X, Fleet to Y, and Strategy to Z) or +X/-Y/+Z (change the CC numbers by that amount). Note that 0 alone will set your CC number in that slot to 0. To update no change, the number should be +0.    * tactical_cc: Update number of CC in Tactics. Can be X (set) or +X (change by that amount).    * fleet_cc: Update number of CC in Fleet supply. Can be X (set) or +X (change by that amount).    * strategy_cc: Update number of CC in Strategy. Can be X (set) or +X (change by that amount).    * trade_goods: Update number of Trade Goods you have. Can be X (set) or +X (change by that amount).    * commodities: Update number of Commodities. Can be X (set) or +X (change by that amount).      >Note that if you add or set more than your Commodity limit, it will default to the limit.    commodities_total: Update your Commodity limit. Can only be X (set).    * strategy_card: Update the Strategy Card you hold. Can only be from 1 to 8. Can only be used when you hold no Strategy Card.     * passed: Update your pass status. Yes is passed, No is not passed.    * speaker: Update your Speaker status. Yes means you now hold the Speaker token, No is not holding it.    * dummy: Update the Dummy status. Dummy players will be ignored for all game effects, including turns change, voting, and various others. Usually used to set a bot as a player to hold down something, but you don’t want the turn to come to them. Yes means the player is a Dummy, No means not.    * player: used to update for other players. Default to the player running the command.    * faction_or_color: same as above, but just a different identifier.* `/player send_tg trade_goods: faction_or_color:`   Used to send TG from you to another player.* `/player send_commodities commodities: faction_or_color:`  Used to send Commodities from you to another player. The Commodity will flip to TG at the receiving player’s side, so it is also useful for flipping your own Commodities when you get washed.* `/player turn_end`* `/player pass`### Strategy card commands Used to play and unplay Strategy Cards. Not used much anymore thanks to the button, but can be helpful (`/player sc_unpick`, in case you mess up your pick). The reason the last 3 require SC identification is due to 3 and 4-player games, where you have more than 1 SC.faction_or_color: used to play and unplay SC of other players* `/player sc_pick strategy_card:`* `/player sc_unpick strategy_card:`* `/player sc_play strategy_card:`* `/player sc_unplay strategy_card:`>Tip: You can use `/player turn_end player:(player before you in initiative order)` to trigger your turn beginning, allowing the buttons to generate again, in case you made some mistakes and have fixed it.Outside of these, we also have the commands `/player setup:`, `/player change_color color:`, `/player speaker:` that were explained in the setting up game section. They can also be done outside of that timing.## Technology commandsCommands that interact with technologies.* `/tech add tech:`  Used to add tech. Has options for up to 4 techs, so it’s a quick way if you want to replace several techs.    * faction_or_color: used to add tech of other players, if not specified, default to the player that uses the command.* `/tech remove tech:`   Used to remove tech. Has options for up to 4 techs, so it’s a quick way if you want to replace several techs.    * faction_or_color: used to remove tech of other players, if not specified, default to the player that uses the command.* `/tech ready tech:`  Used to ready tech. Also has options for up to 4 techs.     * faction_or_color: used to ready tech of other players, if not specified, default to the player that uses the command.    >Note that this command can be used to exhaust even techs that cannot be exhausted, and will not return an error if the tech in question is already ready (or exhausted).* `/tech exhaust tech:`  Used to exhaust tech. Also has options for up to 4 techs.     * faction_or_color: used to ready/exhaust tech of other players, if not specified, default to the player that uses the command.    >Note that this command can be used to exhaust even techs that cannot be exhausted, and will not return an error if the tech in question is already ready (or exhausted).",
+        description: "Commands to use with the bot, to fix an issue or override something.",
+        tags: [],
+        category: "Commands"
+    },
+    
+    {
+        title: "Glossary",
+        url: "/docs/glossary/",
+        content: "## Terminology Lots of users on the discord use many abbreviations for common game terms, and the bot uses some of these as well. Here is a list of some of the most commonly used ones:* PBD - play by discord* SC - strategy card* AC - action card* TG - trade good* SO/PO - secret/public objective* VP - victory point* PN - promissory note* CF -Ceasefire* TA -Trade Agreement* CC - command counter/token* Sabo - Sabotage* Diplo - the diplomacy strategy card* Tech - technology * Wash - a net 0 trade, where commodities of one or both parties are converted to trade goods* X-1 - the \"standard\" trade deal. The active player refreshes your commodities and washes them in exchange for 1 trade good (or a commodity which turns into a trade good). Same goes for x-2 - a refresh and wash for 2 trade goods, or x for a free refresh/wash. * Guac - a term born out of the SCPT (Space Cats Peace Turtles, a popular TI4 podcast) community that refers to victory points that are ‘extra’ (just like you get guacamole on the side, in addition to your meal) - that is, they are not gained by scoring public and secret objectives (unless you have the Obsidian, which gives you an ‘extra’ secret objective). Guac points include custodians, imperial strategy card points, imperial rider, shard of the throne, agenda generated points (mutiny, seed of an empire etc.) and any other points not generated from POs or SOs. ## Unit abbreviations The following are abbreviations the bot recognizes for the different unit types in the game:* Infantry - inf, gf* Mech - mech* Fighter - ff* Destroyer - dd* Cruiser - cr* Carrier - cv* Dreadnought - dn, dread* Flagship - fs, flaggy* War Sun - ws* Space Dock - sd, dock* Planetary defense system - pds, pd>Tip: the bot does not like spaces ever, so the bot cannot understand ‘space dock’ but would work if you write ‘spacedock’. Likewise, the bot uses only lowercase letters but for the most part knows to convert any input into lower case letters.",
+        description: "Terminology and acronymns.",
+        tags: [],
+        category: "Help and support"
+    },
+    
+    {
+        title: "Servers, channels, and roles",
+        url: "/docs/servers-channels-and-roles/",
+        content: "## ServersThe Async TI4 community has 3 main servers:* Asynchronous TI4 (Hub): The main server, where players come to create games, ask questions, and also where the developers announce changes to the bot together with various other things.* Async TI4 (Stroter’s Paradise): The overflow server. Because the Async TI4 games create a huge number of threads and channels, often the main server will be full to capacity, and new games will be directed to this server. There are also some channels here where you can ask questions, but announcements will only happen on the main server. Most people will join both servers anyway.* Async TI4, Fog Of War Chapter: The server dedicated to FOW games. This is due to the large amount of channels and roles that a FOW game requires. FOW games are better formed and created in the FOW server.## Helpful channels in the main server (Asynchronous TI4)Within the Asynchronous TI4 (Hub) server, these are the channels you you should keep an eye out for (outside of the channels for your games):### “Welcome! Get into a game!”* [#making-new-games](https://discord.com/channels/943410040369479690/1064017530391379998): Where to find new games, and create new games yourself! If you have a preexisting group, you can create a post in here, and run the command /game create_game_button to create the Create Game button for the Bothelper.* [#finding-replacements](https://discord.com/channels/943410040369479690/1176191865188536500): Where to find a replacement player for your game* [#get-roles-like-lfg](https://discord.com/channels/943410040369479690/947312278246658108): To easily get roles like @LFG (Looking For Games), @Spectator, and others!* [#how-to-play-on-this-server](https://discord.com/channels/943410040369479690/947727176105623642): Where you should have found this document, and keep an eye out for any new player aid!### “Useful, bot related stuff”* [#bot-bugs-and-features-requests](https://discord.com/channels/943410040369479690/1075302410030944276): Where you can report bugs, or request features. * [#bot-questions-and-feedback](https://discord.com/channels/943410040369479690/951552430796075038): TI4 management bot Q&A. Feel free to tag a @bothelper to get an answer faster.* [#bot-spam-zone](https://discord.com/channels/943410040369479690/988633187515269180): Here the players can run commands to add or remove roles to add or remove players from specific channels, or check the specific text of a technology, action card, or objective, etc. Normally the place where you can run wild with commands that might annoy people due to their results in other channels.* [#async-tools-lounge](https://discord.com/channels/943410040369479690/943508233203630080):   Tools and methods to run, play, moderate, and organize asynchronous play, including the game modes that have not been fully implemented.### “TI Discussions”* [#alliance-mode-discussion](https://discord.com/channels/943410040369479690/943935008240967710): Alliance mode raises lots of questions and conundrums. Discuss them here.* [#ti4-rules](https://discord.com/channels/943410040369479690/1003370235904131112): For ‘normal’ TI (Base + POK + Codices) rules questions. * [#ti-global-league](https://discord.com/channels/943410040369479690/1003741148017336360): For discussions regarding the TI Global League, if it’s your thing.* [#homebrew](https://discord.com/channels/943410040369479690/1009507056606249020): A channel to discuss your ideas for additions and modifications to the TI4 system, also rules questions for existing homebrews.* [#lets-talk-about-franken](https://discord.com/channels/943410040369479690/1164480904148824074): Discussions about Franken homebrew.* [#discordant-stars-talk](https://discord.com/channels/943410040369479690/1168522933283598437): Specific channels dedicated to Discordant Stars homebrew.>Tip: Some developers and bothelpers have specific channels set to ping them, so if you choose the right channels to ask your questions, you might get a quicker answer. ",
+        description: "How to get help from Discord.",
+        tags: [],
+        category: "Help and support"
+    },
+    
+    {
+        title: "Discord Bot",
+        url: "/docs/discord-bot/",
+        content: "Platform note: the bot is designed so that every player can trigger their own move. As a general rule, everything can be done on mobile.  There are many users who only play async this way. Others find that Discord is much easier to use with a desktop. Occasionally, updates on iOS or Android may affect functionality; for instance, we’ve had issues with map resolution after some Android updates. If something doesn’t work, try to restart discord on your phone or ask for troubleshooting help in #general-chat or #bot-questions-and-feedback channel.### This interaction failedSometimes, the bot will seem unresponsive, which usually means that it’s under heavy load, and Discord just hasn't received the response yet. It would show the below info. In those cases, please wait for about 10-15 seconds to see if the bot would respond or not before trying to push the button or run the command again.![](/assets/images/discord-bot/discord-bot-error.png)### Playing Bot is RestartingAlso sometimes, the bot is rebooted to add in new features, and would be unresponsive with the below info. Please wait for about 2-3 minutes to try again.![](/assets/images/discord-bot/discord-bot-restarting.png)",
+        description: "Learn how to use the Async TI Discord bot commands and features",
+        tags: [],
+        category: "Main"
+    },
+    
+    {
+        title: "Welcome",
+        url: "/docs/welcome/",
+        content: "## StartThis guide will walk you through how to play a game of Twilight Imperium 4th Edition (™), asynchronously, on a discord server. The server has a bot that helps the games run smoothly without the need for a third party moderator.  The bot (TI Management Bot) handles secret information, including card draws, and keeps track of the board state. Since the bot is still a work in progress, things change frequently, and our developers are continually working to improve user experience. As of October 2024, the bot implements all game mechanics from Prophecy of Kings (POK) and Codex I-III. It even incorporates some optional elements from the most popular homebrew variants on our server.  These docs attempt to be thorough and simple so that it would be readable to new players that are not used to playing asynchronously.We assume that you know the rules of the game and have a general familiarity with factions and cards. Occasionally, a common term or abbreviation might slip in so check out the glossary at the end if something isn't clear. For any questions or if you need any help, please visit the #bot-questions-and-feedback channel on the server or tag a `@Bothelper`.",
+        description: "Welcome to Async TI4",
+        tags: [],
+        category: "Main"
+    }
+    
+];
+</script>
+
+    
+    <script src="/assets/js/main.js"></script>
+</body>
+</html>

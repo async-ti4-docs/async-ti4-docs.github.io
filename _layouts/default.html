@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    
+    <!-- SEO Tags -->
+    {% seo %}
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="theme-washed-neon">
+    <div class="site-wrapper">
+        <!-- Header -->
+        <header class="site-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="{{ '/' | relative_url }}" class="logo-link">
+                            <span class="logo-icon">📚</span>
+                            <span class="logo-text">Async TI Docs</span>
+                        </a>
+                    </div>
+                    
+                    <nav class="main-nav">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/docs/getting-started/" class="nav-link">Getting Started</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://images-cdn.fantasyflightgames.com/filer_public/da/df/dadf9f07-78f3-43ac-9cce-dd6b55b24ec2/ti4_living_rules_reference_v1_3_web.pdf" target="_blank" class="nav-link">Game Rules <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/docs/discord-bot/" class="nav-link">Discord Bot <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://discord.gg/VSKaFjq2" target="_blank" rel="noopener" class="nav-link">Discord</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="site-main">
+            {{ content }}
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p> All rights for Twilight Imperium 4th Edition belong to Fantasy Flight Games. As fans of the game, who buy anything FFG produces that has to do with TI4, we’re using their property in what we believe is fair use to play the game asynchronously, spread love for the game, and encourage people to buy the product. Docs site built with Jekyll.</p>
+                    <div class="footer-links">
+                        <a href="https://github.com/your-username/async-ti-docs" target="_blank" rel="noopener">GitHub</a>
+                        <a href="https://discord.gg/your-invite-link" target="_blank" rel="noopener">Discord</a>
+                        <a href="/docs/contributing/" target="_blank">Contributing</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    {% if page.layout == 'docs' %}
+    {% include search-data.html %}
+    {% endif %}
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+# Site settings
+title: "Async Twilight Imperium"
+description: "Documentation for the async Discord-based Twilight Imperium game with web viewer"
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "docs"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# GitHub Pages
+github:
+  is_project_page: false
+  repository: async-ti-docs
+  branch: main
+
+# Site settings
+color_scheme: "washed-neon"
+
+# Documentation Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+    sort_by: title
+    sort_order: asc
+
+# Defaults for docs collection
+defaults:
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "docs"
+      nav_order: 1

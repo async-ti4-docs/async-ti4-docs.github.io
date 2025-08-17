@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en' }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    
+    <!-- SEO Tags -->
+    {% seo %}
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="theme-washed-neon">
+    <div class="site-wrapper">
+        <!-- Header -->
+        <header class="site-header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <a href="{{ '/' | relative_url }}" class="logo-link">
+                            <span class="logo-icon">📚</span>
+                            <span class="logo-text">Async TI Docs</span>
+                        </a>
+                    </div>
+                    
+                    <nav class="main-nav">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="/" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/docs/getting-started/" class="nav-link">Getting Started</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://images-cdn.fantasyflightgames.com/filer_public/da/df/dadf9f07-78f3-43ac-9cce-dd6b55b24ec2/ti4_living_rules_reference_v1_3_web.pdf" target="_blank" class="nav-link">Game Rules</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://asyncti4.com/" class="nav-link">asyncTI4 <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://discord.gg/VSKaFjq2" target="_blank" rel="noopener" class="nav-link">Discord</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="site-main">
+            <div class="docs-layout">
+                <!-- Left Sidebar -->
+                <aside class="docs-sidebar">
+                    <div class="sidebar-section">
+                        <div class="search-container">
+                            <input type="text" id="search-input" class="search-input" placeholder="Search documentation...">
+                            <div id="search-results" class="search-results"></div>
+                        </div>
+                        
+                        <h3 class="sidebar-title">Documentation</h3>
+                        <nav class="docs-nav">
+                            <ul class="docs-nav-list">
+                                {% assign sorted_docs = site.docs | sort: 'nav_order', 'last' %}
+                                {% assign current_group = '' %}
+                                
+                                {% for doc in sorted_docs %}
+                                    {% if doc.parent %}
+                                        {% if doc.parent != current_group %}
+                                            {% if current_group != '' %}
+                                                </ul></li>
+                                            {% endif %}
+                                            {% assign current_group = doc.parent %}
+                                            <li class="nav-group">
+                                                <div class="nav-group-header">
+                                                    <span class="nav-group-title">{{ doc.parent }}</span>
+                                                    <span class="nav-group-toggle">▼</span>
+                                                </div>
+                                                <ul class="nav-group-items">
+                                        {% endif %}
+                                        <li>
+                                            <a href="{{ doc.url | relative_url }}" class="docs-nav-link docs-nav-sublink {% if page.url == doc.url %}active{% endif %}">
+                                                {{ doc.title }}
+                                            </a>
+                                        </li>
+                                    {% else %}
+                                        {% if current_group != '' %}
+                                            </ul></li>
+                                            {% assign current_group = '' %}
+                                        {% endif %}
+                                        <li>
+                                            <a href="{{ doc.url | relative_url }}" class="docs-nav-link {% if page.url == doc.url %}active{% endif %}">
+                                                {{ doc.title }}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                {% if current_group != '' %}
+                                    </ul></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-title">Quick Links</h3>
+                        <nav class="docs-nav">
+                            <ul class="docs-nav-list">
+                                <li><a href="/docs/faq/" class="docs-nav-link">FAQ</a></li>
+                                <li><a href="/docs/troubleshooting/" class="docs-nav-link">Troubleshooting</a></li>
+                                <li><a href="/docs/contributing/" class="docs-nav-link">Contributing</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <main class="docs-main">
+                    <article class="docs-article">
+                        <header class="article-header">
+                            <h1 class="article-title">{{ page.title }}</h1>
+                            {% if page.description %}
+                            <p class="article-description">{{ page.description }}</p>
+                            {% endif %}
+                        </header>
+
+                        <div class="article-content">
+                            {{ content }}
+                        </div>
+
+                        <footer class="article-footer">
+                            <div class="article-meta">
+                                <span class="last-updated">Last updated: {{ page.last_modified_at | default: page.date | date: '%B %d, %Y' }}</span>
+                            </div>
+                            
+                            <nav class="article-navigation">
+                                {% comment %}
+                                Create logical next/previous navigation based on nav_order
+                                This handles both grouped (with parent) and ungrouped pages
+                                {% endcomment %}
+                                
+                                {% assign sorted_docs = site.docs | sort: 'nav_order' %}
+                                {% assign prev_page = null %}
+                                {% assign next_page = null %}
+                                {% assign found_current = false %}
+                                
+                                {% for doc in sorted_docs %}
+                                    {% if found_current and next_page == null %}
+                                        {% assign next_page = doc %}
+                                        {% break %}
+                                    {% endif %}
+                                    
+                                    {% if doc.url == page.url %}
+                                        {% assign found_current = true %}
+                                    {% elsif found_current == false %}
+                                        {% assign prev_page = doc %}
+                                    {% endif %}
+                                {% endfor %}
+                                
+                                {% if prev_page %}
+                                <a href="{{ prev_page.url | relative_url }}" class="nav-prev">
+                                    <span class="nav-arrow">←</span>
+                                    <div class="nav-content">
+                                        <span class="nav-label">Previous</span>
+                                        <span class="nav-title">{{ prev_page.title }}</span>
+                                        {% if prev_page.parent %}
+                                        <span class="nav-parent">{{ prev_page.parent }}</span>
+                                        {% endif %}
+                                    </div>
+                                </a>
+                                {% endif %}
+                                
+                                {% if next_page %}
+                                <a href="{{ next_page.url | relative_url }}" class="nav-next">
+                                    <div class="nav-content">
+                                        <span class="nav-label">Next</span>
+                                        <span class="nav-title">{{ next_page.title }}</span>
+                                        {% if next_page.parent %}
+                                        <span class="nav-parent">{{ next_page.parent }}</span>
+                                        {% endif %}
+                                    </div>
+                                    <span class="nav-arrow">→</span>
+                                </a>
+                                {% endif %}
+                            </nav>
+                        </footer>
+                    </article>
+                </main>
+
+                <!-- Right Side Table of Contents -->
+                <aside class="docs-toc">
+                    {% include table-of-contents.html %}
+                </aside>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p> All rights for Twilight Imperium 4th Edition belong to Fantasy Flight Games. As fans of the game, who buy anything FFG produces that has to do with TI4, we're using their property in what we believe is fair use to play the game asynchronously, spread love for the game, and encourage people to buy the product. Docs site built with Jekyll.</p>
+                    <div class="footer-links">
+                        <a href="https://discord.gg/VSKaFjq2" target="_blank" rel="noopener">Discord</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    {% if page.layout == 'docs' %}
+    {% include search-data.html %}
+    {% endif %}
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

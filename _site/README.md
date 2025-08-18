@@ -84,19 +84,14 @@ Example:
 ```markdown
 ---
 layout: docs
-title: "Your Page Title"
-description: "Page description for SEO"
+title: "Commands"
+description: "Commands to use with the bot, to fix an issue or override something."
+nav_order: 7.2
+parent: Commands
 ---
 
 # Your Content Here
 ```
-
-## 📱 Responsive Design
-
-The site is fully responsive with breakpoints at:
-- **Desktop**: 1200px and above
-- **Tablet**: 768px - 1199px
-- **Mobile**: Below 768px
 
 ## 🚀 Deployment
 
@@ -127,15 +122,6 @@ The site is fully responsive with breakpoints at:
 - Use `bundle exec jekyll serve --livereload` for development with auto-reload
 - Test responsive design across different screen sizes
 
-## 📚 Documentation Sections
-
-- **Getting Started**: Setup and first steps
-- **Game Rules**: Complete game mechanics
-- **Discord Bot**: Bot commands and features
-- **Web Interface**: Using the web viewer
-- **API Reference**: Technical documentation
-- **FAQ**: Common questions and answers
-
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -154,11 +140,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Jekyll**: The static site generator that powers this site
 - **Community**: All the players and contributors who make Async TI possible
 
-## 📞 Support
-
-- **Discord**: Join our server for community support
-- **Issues**: Report bugs or request features on GitHub
-- **Documentation**: Check the docs for answers to common questions
 
 ---
 

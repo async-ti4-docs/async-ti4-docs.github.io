@@ -203,14 +203,6 @@ function initializeSearch() {
     // Search data - we'll populate this from Jekyll
     let searchData = [];
     
-    // Initialize search data from Jekyll
-    if (window.searchData) {
-        searchData = window.searchData;
-        console.log('Search data loaded:', searchData.length, 'items');
-    } else {
-        console.log('No search data found in window.searchData');
-    }
-    
     // Debounce function to limit API calls
     function debounce(func, wait) {
         let timeout;
@@ -228,6 +220,13 @@ function initializeSearch() {
     function performSearch(query) {
         if (!query.trim()) {
             searchResults.classList.remove('active');
+            return;
+        }
+        
+        if (!searchData || searchData.length === 0) {
+            console.log('No search data available');
+            searchResults.innerHTML = '<div class="no-results">Search data not loaded</div>';
+            searchResults.classList.add('active');
             return;
         }
         
@@ -296,28 +295,42 @@ function initializeSearch() {
     // Highlight query in text
     function highlightQuery(text, query) {
         const regex = new RegExp(`(${query})`, 'gi');
-        return text.replace(regex, '<mark style="background: rgba(255, 20, 147, 0.3); color: var(--text-primary);">$1</mark>');
+        return text.replace(regex, '<mark style="background: rgba(255, 165, 0, 0.3); color: var(--text-primary);">$1</mark>');
     }
     
-    // Event listeners
-    searchInput.addEventListener('input', debounce(function() {
-        performSearch(this.value);
-    }, 300));
-    
-    // Close search results when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
-            searchResults.classList.remove('active');
+    // Wait a bit for search data to load, then initialize
+    setTimeout(function() {
+        if (window.searchData) {
+            searchData = window.searchData;
+            console.log('Search data loaded:', searchData.length, 'items');
+            console.log('First search item:', searchData[0]);
+        } else {
+            console.log('No search data found in window.searchData');
+            if (typeof window.searchData === 'undefined') {
+                console.log('window.searchData is undefined');
+            }
         }
-    });
-    
-    // Close search results on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            searchResults.classList.remove('active');
-            searchInput.blur();
-        }
-    });
+        
+        // Event listeners (initialize after data is loaded)
+        searchInput.addEventListener('input', debounce(function() {
+            performSearch(this.value);
+        }, 300));
+        
+        // Close search results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
+                searchResults.classList.remove('active');
+            }
+        });
+        
+        // Close search results on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                searchResults.classList.remove('active');
+                searchInput.blur();
+            }
+        });
+    }, 100);
 }
 
 // Initialize nested navigation

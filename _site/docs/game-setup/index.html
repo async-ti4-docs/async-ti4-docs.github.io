@@ -14,14 +14,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="After the channels and roles are created, the next step is to set up the game." />
 <meta property="og:description" content="After the channels and roles are created, the next step is to set up the game." />
-<link rel="canonical" href="http://0.0.0.0:4013/docs/game-setup/" />
-<meta property="og:url" content="http://0.0.0.0:4013/docs/game-setup/" />
+<link rel="canonical" href="http://0.0.0.0:4016/docs/game-setup/" />
+<meta property="og:url" content="http://0.0.0.0:4016/docs/game-setup/" />
 <meta property="og:site_name" content="Async Twilight Imperium" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Game setup" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"After the channels and roles are created, the next step is to set up the game.","headline":"Game setup","url":"http://0.0.0.0:4013/docs/game-setup/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"After the channels and roles are created, the next step is to set up the game.","headline":"Game setup","url":"http://0.0.0.0:4016/docs/game-setup/"}</script>
 <!-- End Jekyll SEO tag -->
 
     
@@ -82,9 +82,17 @@
 
         <!-- Main Content -->
         <main class="site-main">
+            <!-- Mobile Docs Toggle -->
+            <button class="mobile-docs-toggle" id="mobile-docs-toggle" aria-label="Toggle documentation sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Mobile Overlay -->
+            <div class="mobile-overlay" id="mobile-overlay"></div>
+            
             <div class="docs-layout">
                 <!-- Left Sidebar -->
-                <aside class="docs-sidebar">
+                <aside class="docs-sidebar" id="docs-sidebar">
                     <div class="sidebar-section">
                         <div class="search-container">
                             <input type="text" id="search-input" class="search-input" placeholder="Search documentation...">

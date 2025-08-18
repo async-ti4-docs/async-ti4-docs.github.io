@@ -820,7 +820,59 @@ a[href*="github.com"]::after {
     transform: translateY(-2px);
 }
 
+/* Mobile Toggle Button */
+.mobile-docs-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    padding: 0.75rem;
+    color: var(--text-primary);
+    cursor: pointer;
+    box-shadow: var(--shadow-neon);
+    transition: all 0.3s ease;
+}
+
+.mobile-docs-toggle:hover {
+    background: var(--neon-cyan);
+    color: var(--bg-primary);
+}
+
+.mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    backdrop-filter: blur(4px);
+}
+
+.mobile-overlay.active {
+    display: block;
+}
+
 /* Responsive Design */
+@media (max-width: 1024px) {
+    .docs-toc {
+        display: none; /* Hide ToC on tablets and smaller */
+    }
+    
+    .docs-layout {
+        gap: 1rem;
+    }
+    
+    .docs-sidebar {
+        width: 280px;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 0 1rem;
@@ -841,19 +893,44 @@ a[href*="github.com"]::after {
         display: flex;
     }
     
-    .docs-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    .mobile-docs-toggle {
+        display: block;
+    }
+    
+    .docs-layout {
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        margin-top: 60px; /* Space for mobile toggle */
     }
     
     .docs-sidebar {
-        position: static;
-        order: 2;
+        position: fixed;
+        top: 0;
+        left: -320px;
+        width: 320px;
+        height: 100vh;
+        background: var(--bg-secondary);
+        z-index: 1000;
+        overflow-y: auto;
+        border-right: 1px solid var(--border-primary);
+        box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease;
+        padding: 2rem 1.5rem;
+    }
+    
+    .docs-sidebar.active {
+        transform: translateX(320px);
     }
     
     .docs-main {
-        order: 1;
+        width: 100%;
+        margin-left: 0;
         padding: 1.5rem;
+    }
+    
+    .docs-toc {
+        display: none; /* Hide ToC on mobile */
     }
     
     .article-title {

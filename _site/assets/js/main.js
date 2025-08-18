@@ -84,6 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize search functionality
     initializeSearch();
+    
+    // Initialize mobile sidebar
+    initializeMobileSidebar();
 });
 
 // Helper function to get language from code block class
@@ -341,6 +344,69 @@ function initializeNestedNav() {
             if (wasCollapsed) {
                 group.classList.add('collapsed');
             }
+        }
+    });
+}
+
+// Initialize mobile sidebar functionality
+function initializeMobileSidebar() {
+    const mobileToggle = document.getElementById('mobile-docs-toggle');
+    const sidebar = document.getElementById('docs-sidebar');
+    const overlay = document.getElementById('mobile-overlay');
+    
+    if (!mobileToggle || !sidebar || !overlay) {
+        return; // Elements not found, likely not on a docs page
+    }
+    
+    // Toggle sidebar visibility
+    function toggleSidebar() {
+        const isActive = sidebar.classList.contains('active');
+        
+        if (isActive) {
+            closeSidebar();
+        } else {
+            openSidebar();
+        }
+    }
+    
+    // Open sidebar
+    function openSidebar() {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    
+    // Close sidebar
+    function closeSidebar() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
+    
+    // Event listeners
+    mobileToggle.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', closeSidebar);
+    
+    // Close sidebar when clicking on a navigation link
+    const navLinks = sidebar.querySelectorAll('.docs-nav-link');
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            // Small delay to allow navigation to start
+            setTimeout(closeSidebar, 100);
+        });
+    });
+    
+    // Close sidebar on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+            closeSidebar();
+        }
+    });
+    
+    // Close sidebar when window is resized to desktop size
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && sidebar.classList.contains('active')) {
+            closeSidebar();
         }
     });
 }

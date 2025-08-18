@@ -2,7 +2,7 @@
 layout: docs
 title: "FAQs"
 description: "Common questions from across the server."
-nav_order: 7.2
+nav_order: 7.3
 parent: Help and support
 ---
 

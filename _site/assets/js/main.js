@@ -370,32 +370,78 @@ function initializeSearch() {
     }, 100);
 }
 
-// Initialize nested navigation
+// Initialize nested navigation with accordion behavior
 function initializeNestedNav() {
     const navGroups = document.querySelectorAll('.nav-group');
     
+    // Find group with active page and keep only that one open
+    let activeGroupFound = false;
+    navGroups.forEach(function(group) {
+        const activeLink = group.querySelector('.docs-nav-link.active');
+        const toggle = group.querySelector('.nav-group-toggle');
+        
+        if (activeLink && !activeGroupFound) {
+            // Keep the group with active link open
+            group.classList.remove('collapsed');
+            if (toggle) toggle.textContent = '▼';
+            activeGroupFound = true;
+        } else {
+            // Close all other groups (accordion behavior)
+            group.classList.add('collapsed');
+            if (toggle) toggle.textContent = '▶';
+        }
+    });
+    
+    // Add click handlers for accordion functionality
     navGroups.forEach(function(group) {
         const header = group.querySelector('.nav-group-header');
         const toggle = group.querySelector('.nav-group-toggle');
         
         if (header && toggle) {
             header.addEventListener('click', function() {
-                group.classList.toggle('collapsed');
-                
-                // Save state to localStorage
-                const groupTitle = group.querySelector('.nav-group-title').textContent;
                 const isCollapsed = group.classList.contains('collapsed');
-                localStorage.setItem(`nav-group-${groupTitle}`, isCollapsed);
+                
+                if (isCollapsed) {
+                    // Close all other groups first (accordion behavior)
+                    navGroups.forEach(function(otherGroup) {
+                        if (otherGroup !== group) {
+                            otherGroup.classList.add('collapsed');
+                            const otherToggle = otherGroup.querySelector('.nav-group-toggle');
+                            if (otherToggle) otherToggle.textContent = '▶';
+                        }
+                    });
+                    
+                    // Open clicked group
+                    group.classList.remove('collapsed');
+                    toggle.textContent = '▼';
+                } else {
+                    // Close clicked group
+                    group.classList.add('collapsed');
+                    toggle.textContent = '▶';
+                }
             });
-            
-            // Restore collapsed state from localStorage
-            const groupTitle = group.querySelector('.nav-group-title').textContent;
-            const wasCollapsed = localStorage.getItem(`nav-group-${groupTitle}`) === 'true';
-            if (wasCollapsed) {
-                group.classList.add('collapsed');
-            }
         }
     });
+    
+    // Auto-scroll active item into view within sidebar
+    const activeLink = document.querySelector('.docs-nav-link.active');
+    if (activeLink) {
+        setTimeout(function() {
+            const sidebar = document.querySelector('.docs-sidebar');
+            if (sidebar) {
+                const sidebarRect = sidebar.getBoundingClientRect();
+                const linkRect = activeLink.getBoundingClientRect();
+                
+                // Check if active link is outside sidebar view
+                if (linkRect.top < sidebarRect.top || linkRect.bottom > sidebarRect.bottom) {
+                    activeLink.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+                }
+            }
+        }, 200);
+    }
 }
 
 // Initialize mobile sidebar functionality

@@ -236,6 +236,34 @@ a:hover {
     box-shadow: var(--shadow-neon);
     width: 320px;
     flex-shrink: 0;
+    height: calc(100vh - 120px); /* Full height minus header space */
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    /* Custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: var(--neon-cyan) transparent;
+}
+
+/* Custom scrollbar for webkit browsers */
+.docs-sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.docs-sidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.docs-sidebar::-webkit-scrollbar-thumb {
+    background: var(--neon-cyan);
+    border-radius: 3px;
+    opacity: 0.6;
+}
+
+.docs-sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--neon-cyan);
+    opacity: 1;
 }
 
 .sidebar-section {

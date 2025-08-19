@@ -1,146 +1,102 @@
-# Async Twilight Imperium Documentation Site
+# Async Twilight Imperium Documentation
 
-A beautiful, modern documentation site for the Async Twilight Imperium Discord-based game, built with Jekyll and featuring a washed-out neon theme.
+A Jekyll-based documentation site for the Async Twilight Imperium Discord game, featuring a neon theme and responsive design.
 
-## 🌌 About
-
-Async Twilight Imperium is a Discord-based implementation of the epic space strategy game Twilight Imperium 4th Edition, adapted for asynchronous play. This documentation site provides comprehensive guides, rules, and information for players.
-
-## ✨ Features
-
-- **Washed-Out Neon Theme**: Beautiful, eye-friendly design with neon accents
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile
-- **Jekyll-Based**: Fast, static site generation with GitHub Pages support
-- **Interactive Elements**: Code copy buttons, smooth scrolling, and animations
-- **Comprehensive Documentation**: Complete guides for getting started and playing
-
-## 🚀 Quick Start
+## 🚀 Local Development
 
 ### Prerequisites
-
-- Ruby 2.7 or higher
-- RubyGems
+- Ruby 2.7+
 - Bundler
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/async-ti-docs.git
-   cd async-ti-docs
-   ```
-
-2. **Install dependencies**
-   ```bash
-   bundle install
-   ```
-
-3. **Run the development server**
-   ```bash
-   bundle exec jekyll serve
-   ```
-
-4. **Open your browser**
-   Navigate to `http://localhost:4000`
-
-## 🏗️ Project Structure
-
-```
-async-ti-docs/
-├── _layouts/          # Jekyll layout templates
-├── _docs/             # Documentation markdown files
-├── assets/            # CSS, JavaScript, and images
-│   ├── css/          # Stylesheets
-│   ├── js/           # JavaScript files
-│   └── images/       # Images and icons
-├── _config.yml        # Jekyll configuration
-├── Gemfile           # Ruby dependencies
-└── README.md         # This file
+### Setup
+```bash
+git clone https://github.com/your-username/async-ti-docs.git
+cd async-ti-docs
+bundle install
+bundle exec jekyll serve
 ```
 
-## 🎨 Customization
+Visit `http://localhost:4000` to see your site.
 
-### Colors and Theme
+## 📝 Adding New Documentation
 
-The washed-out neon theme uses CSS custom properties defined in `assets/css/main.css`:
-
-```css
-:root {
-    --neon-cyan: rgba(0, 255, 255, 0.3);
-    --neon-pink: rgba(255, 20, 147, 0.3);
-    --neon-purple: rgba(147, 0, 211, 0.3);
-    --neon-green: rgba(0, 255, 127, 0.3);
-    --neon-orange: rgba(255, 165, 0, 0.3);
-}
-```
-
-### Adding New Documentation
-
-1. Create a new markdown file in the `_docs/` directory
-2. Use the `docs` layout in the front matter
-3. Add navigation links in `_config.yml`
-
-Example:
+### 1. Create a new markdown file in `_docs/`
 ```markdown
 ---
 layout: docs
-title: "Commands"
-description: "Commands to use with the bot, to fix an issue or override something."
-nav_order: 7.2
-parent: Commands
+title: "Your Page Title"
+description: "Brief description of the page"
+nav_order: 2.1
+parent: "Section Name"  # Optional: for nested navigation
 ---
 
 # Your Content Here
 ```
 
+### 2. Navigation Structure
+- **`nav_order`**: Controls the order in the sidebar (1, 2, 2.1, 2.2, etc.)
+- **`parent`**: Groups pages under collapsible sections
+- **`layout: docs`**: Uses the documentation template with sidebar
+
+### 3. File Organization
+```
+_docs/
+├── getting-started/
+│   ├── welcome.md          # nav_order: 1
+│   └── setup.md            # nav_order: 2
+├── game-rules/
+│   ├── basic-rules.md      # nav_order: 3.1, parent: "Game Rules"
+│   └── advanced-rules.md   # nav_order: 3.2, parent: "Game Rules"
+```
+
+## 🎨 Styling
+
+- **CSS**: `assets/css/main.css` - Main styles and neon theme
+- **JavaScript**: `assets/js/main.js` - Interactive features
+- **Layouts**: `_layouts/` - Page templates
+
 ## 🚀 Deployment
 
-### GitHub Pages
-
-1. Push your changes to the `main` branch
-2. GitHub Pages will automatically build and deploy your site
-3. Your site will be available at `https://your-username.github.io/async-ti-docs`
-
-### Custom Domain
-
-1. Add your custom domain in GitHub repository settings
-2. Update the `url` field in `_config.yml`
-3. Add a `CNAME` file with your domain
-
-## 🛠️ Development
-
-### Adding New Features
-
-- **CSS**: Add styles to `assets/css/main.css`
-- **JavaScript**: Add functionality to `assets/js/main.js`
-- **Layouts**: Create new layouts in `_layouts/`
-- **Includes**: Add reusable components in `_includes/`
-
-### Testing
-
-- Run `bundle exec jekyll build` to check for build errors
-- Use `bundle exec jekyll serve --livereload` for development with auto-reload
-- Test responsive design across different screen sizes
+Push to `main` branch - GitHub Pages auto-deploys.
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. Fork → Branch → Edit → Test → Pull Request
+2. Test locally with `bundle exec jekyll build`
+3. Ensure responsive design works on mobile
 
-## 📄 License
+## 🆕 New to GitHub? Edit Files Directly!
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+If you're completely new to GitHub and just want to make simple edits, you can edit files right in your browser!
 
-## 🙏 Acknowledgments
+### Step 1: Find the file you want to edit
+1. Navigate to the file in the repository (e.g., `_docs/welcome.md`)
+2. Click the **pencil icon** (✏️) in the top-right corner of the file
 
-- **Twilight Imperium**: Fantasy Flight Games for the amazing board game
-- **Jekyll**: The static site generator that powers this site
-- **Community**: All the players and contributors who make Async TI possible
+### Step 2: Make your changes
+1. Edit the text in the file
+2. Select preview at the top of the page to see your changes
 
+### Step 3: Commit your changes
+1. At the top-right, select 'Commit changes...'
+   - **Commit message**: Brief description (e.g., "Fix typo in welcome page")
+   - **Extended description**: Add more details below
+2. Click the green **"Propose changes"** button
+3. Open a pull request
+   - **Add a title**: Add a short tile
+   - **Add a description**: Short description
+
+### Step 4: Wait for review
+- Your changes will be automatically submitted as a "Pull Request"
+- A maintainer will review and approve your changes
+- Once approved, your edits will appear on the live site!
+
+### 💡 Tips for beginners:
+- **Start small** - Fix typos or add simple clarifications
+- **Be descriptive** - Explain what you changed and why
+- **Don't worry about mistakes** - Maintainers can help fix issues
+- **Ask questions** - Use the Discord if you're unsure about anything
 
 ---
 
-**May your empire prosper and your strategies prevail!** 🌌✨
+**For questions**: Join our [Discord](https://discord.gg/VSKaFjq2) or check the documentation!

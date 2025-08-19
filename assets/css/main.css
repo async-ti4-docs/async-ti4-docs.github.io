@@ -523,31 +523,33 @@ a[href*="github.com"]::after {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0.75rem;
-    background: rgba(0, 255, 255, 0.1);
-    border-radius: 6px;
+    padding: 0.5rem 0;
     cursor: pointer;
     transition: all 0.3s ease;
-    border: 1px solid rgba(0, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
 }
 
 .nav-group-header:hover {
-    background: rgba(0, 255, 255, 0.15);
-    border-color: var(--neon-cyan);
+    border-bottom-color: var(--neon-cyan);
 }
 
 .nav-group-title {
     font-weight: 600;
-    color: var(--accent-primary);
+    color: var(--neon-cyan);
     font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    text-transform: none;
+    letter-spacing: 0.2px;
 }
 
 .nav-group-toggle {
     color: var(--neon-cyan);
     font-size: 0.8rem;
     transition: transform 0.3s ease;
+    opacity: 0.7;
+}
+
+.nav-group-header:hover .nav-group-toggle {
+    opacity: 1;
 }
 
 .nav-group.collapsed .nav-group-toggle {
@@ -556,9 +558,9 @@ a[href*="github.com"]::after {
 
 .nav-group-items {
     list-style: none;
-    margin: 0.5rem 0 0 0;
-    padding-left: 1rem;
-    border-left: 1px solid rgba(0, 255, 255, 0.2);
+    margin: 0.25rem 0 0.5rem 0;
+    padding-left: 1.5rem;
+    border-left: 1px solid rgba(0, 255, 255, 0.15);
 }
 
 .nav-group.collapsed .nav-group-items {
@@ -568,8 +570,9 @@ a[href*="github.com"]::after {
 .docs-nav-sublink {
     font-size: 0.9rem;
     padding: 0.4rem 0.75rem;
-    margin-left: 0.5rem;
+    margin: 0.25rem 0;
     border-radius: 4px;
+    transition: all 0.3s ease;
 }
 
 .docs-nav-sublink:hover {

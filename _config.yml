@@ -1,5 +1,5 @@
 # Site settings
-title: "Async Twilight Imperium"
+title: "AsyncTI4 Docs"
 description: "Documentation for the async Discord-based Twilight Imperium game with web viewer"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com

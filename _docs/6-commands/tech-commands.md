@@ -2,7 +2,7 @@
 layout: docs
 title: "Tech commands"
 description: "Commands to use with the bot, to fix an issue or override something."
-nav_order: 7.3
+nav_order: 6.3
 parent: Commands
 ---
 

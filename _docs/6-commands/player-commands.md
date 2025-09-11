@@ -2,7 +2,7 @@
 layout: docs
 title: "Player commands"
 description: "Commands to use with the bot, to fix an issue or override something."
-nav_order: 7.2
+nav_order: 6.2
 parent: Commands
 ---
 

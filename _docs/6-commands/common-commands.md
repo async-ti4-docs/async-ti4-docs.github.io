@@ -2,7 +2,7 @@
 layout: docs
 title: "Common commands"
 description: "Commands to use with the bot, to fix an issue or override something."
-nav_order: 7.1
+nav_order: 6.1
 parent: Commands
 ---
 

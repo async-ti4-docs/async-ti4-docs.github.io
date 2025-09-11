@@ -29,11 +29,14 @@ All steps of a Tactical Action are followed and are almost fully automated by th
 ### Combat 
 If there is combat, the bot will create a dedicated combat thread where the 2 players can roll using the buttons. 
 * 'Anti-Fighter Barrage' is managed inside the thread. 
-* 'Bombardment' is managed outside the thread (because Bombardment can be done without combat). * 'Space Cannon Offense' and 'Defense' are managed both inside and outside, depending on the situation (due to PDS II).
+* 'Bombardment' is managed inside and outside the thread (because Bombardment can be done without combat). 
+* 'Space Cannon Offense' and 'Defense' are managed both inside and outside, depending on the situation (due to PDS II).
 
 Still, a lot of the combat abilities have not been automated yet, so you will need to keep vigilance to do things manually with commands when necessary.
 
-After rolling, the bot offers options to assign hits, use special abilities (i.e. Technology Singularity, Edict, etc.), and retreat (but it cannot recognize eligible systems to retreat to yet).
+After rolling, the bot offers options to assign hits, use special abilities (i.e. Technology Singularity, Edict, etc.), and retreat.
+
+The bot does not recognize eligible systems to retreat.
 
 >Tip: Simple way to use the `/roll` command: `/roll roll_command:Xd10hvY + Ad10hvB` (Where `X` and `A` are the number of ships of their respective types, and `Y` and `B` are their combat values. This means X d10 (10 sided die) hits versus Y.). 
 
@@ -55,4 +58,4 @@ The standard procedure is that if you are done with your Primary, you should end
 
 ## Component action
 
-All of the POK and Codices Component Actions have been coded into the bot. Most won’t be automatic, but you can almost always resolve it by using the existing tools in the Troubleshooting section. Please also note that your Component actions from your AC are not counted in the number on the button to avoid revealing hidden info, so you will have to keep those in mind.
+Please also note that your Component actions from your AC are not counted in the number on the button to avoid revealing hidden info, so you will have to keep those in mind.

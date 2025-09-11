@@ -3,7 +3,6 @@ layout: docs
 title: "Channels, roles, and how to use them"
 description: "Learn how to use the various channels and roles in Discord."
 nav_order: 2.2
-parent: Getting started
 ---
 
 ## Channels of a new game

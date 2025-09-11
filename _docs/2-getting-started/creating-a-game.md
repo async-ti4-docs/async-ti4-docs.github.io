@@ -2,8 +2,7 @@
 layout: docs
 title: "Creating a game"
 description: "How to create a game in Discord."
-nav_order: 2.1
-parent: Getting started
+nav_order: 1
 ---
 
 ## Start a new game

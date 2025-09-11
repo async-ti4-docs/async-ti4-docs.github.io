@@ -3,7 +3,6 @@ layout: docs
 title: "Game setup"
 description: "After the channels and roles are created, the next step is to set up the game."
 nav_order: 2.3
-parent: Getting started
 ---
 
 Originally, this step was done with commands, but thanks to the tireless work of our developers, it can now be mostly done with buttons (at least for standard games).

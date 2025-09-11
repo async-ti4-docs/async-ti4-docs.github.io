@@ -3,7 +3,6 @@ layout: docs
 title: "Supported game formats"
 description: "The different kind of game formats supported on Async."
 nav_order: 2.2
-parent: Getting started
 ---
 
 Over the years new versions of Twilight Imperium 4 have been released, both official and unofficial. 

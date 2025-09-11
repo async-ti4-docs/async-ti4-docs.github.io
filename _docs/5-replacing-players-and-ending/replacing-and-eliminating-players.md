@@ -17,7 +17,4 @@ After you have found the replacement player, use this command:
 
 ## Eliminating players
 
-Twilight Imperium is a cutthroat game at the worst of times. That includes elimination, something that has been baked into the rulebook. So across our 2000s games, there tends to be a few eliminations. When that happens, use this:
-
-* `/game eliminate player1`: the command should get you most of the way, including the player from the bot and remove their components from the boards and players’ hands.
-* `/role remove user`: role: to remove the game role from the eliminated players. The role is pbdX, with X being the game number.
+When a player is eliminated the bot presents a button to remove the player, prompting cleanup.

@@ -10,9 +10,11 @@ There are 2 steps: Scoring and Cleaning up.
 
 ## Scoring
 
-You can push the button with the Public Objective (PO) you want to score. You can score your Secret Objective(SO) by using the buttons in your Cards Info thread. Otherwise, please press “No PO Scored”/”No SO Scored” so that the phase can proceed. Players that responded will have their faction symbol displayed under the buttons.
+You can push the button with the Public Objective (PO) you want to score. You can score your Secret Objective(SO). 
 
-![](/assets/images/playing-the-game/1-status-phase.png)
+![Discord buttons showing scorable objectives](/assets/images/playing-the-game/status-so-scoring.png)
+
+Otherwise, please press “No PO Scored”/”No SO Scored” so that the phase can proceed. Players that responded will have their faction symbol displayed under the buttons.
 
 ## Cleaning up
 
